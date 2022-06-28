@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
+            $table->string('seat_no');
+            $table->integer('level')->default(1);
+            $table->string('class');
+            $table->integer('status')->default(1);
+            $table->foreignId('cinema_hall_id')->constrained('cinema_halls')->onDelete('cascade');
             $table->timestamps();
         });
     }

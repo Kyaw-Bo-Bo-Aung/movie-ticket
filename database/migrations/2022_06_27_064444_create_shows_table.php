@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('shows', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->integer('status');
+            $table->foreignId('movie_id')->constrained('movies')->onDelete('cascade');
+            $table->foreignId('seat_id')->constrained('seats')->onDelete('cascade');
             $table->timestamps();
         });
     }

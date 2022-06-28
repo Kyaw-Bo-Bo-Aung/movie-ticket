@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('cinema_halls', function (Blueprint $table) {
             $table->id();
+            $table->string('code_no')->nullable();
+            $table->string('name');
+            $table->string('location');
+            $table->decimal('screen_size');
+            $table->integer('level');
+            $table->integer('total_seats');
             $table->timestamps();
         });
     }
